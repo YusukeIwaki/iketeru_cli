@@ -1,0 +1,22 @@
+{
+  "name": "rink-typescript-examples",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "TypeScript examples using Ink for comparison with Ruby Rink",
+  "main": "counter.tsx",
+  "scripts": {
+    "counter": "tsx counter.tsx",
+    "counter-static": "tsx counter-static.tsx",
+    "build": "tsc",
+    "counter-js": "node counter.js"
+  },
+  "dependencies": {
+    "ink": "^3.2.0",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "tsx": "^3.14.0",
+    "typescript": "^4.9.0"
+  }
+}

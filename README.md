@@ -5,24 +5,28 @@ Rink is a Ruby library for building beautiful command-line applications with a s
 ## Features
 
 ### 🎨 Rich Text Styling
+
 - **Colors** - 16 basic colors, 256 colors, and true color (16 million colors) support
 - **Text decorations** - Bold, italic, underline, strikethrough, dim, and inverse
 - **Background colors** - Apply background colors to any text
 - **Gradient text** - Smooth color gradients across text
 
 ### 📦 Component-Based Architecture
+
 - **Composable components** - Build complex UIs from simple, reusable components
 - **State management** - Built-in state handling with automatic re-rendering
 - **Lifecycle methods** - Mount, update, and unmount hooks for components
 - **Props system** - Pass data between components cleanly
 
 ### 🎯 Layout System
+
 - **Flexbox-like layouts** - Arrange components with familiar flexbox properties
 - **Box component** - Container with padding, margin, borders, and alignment
 - **Grid layouts** - Create table-like structures easily
 - **Responsive design** - Components that adapt to terminal size
 
 ### 🔤 Text Components
+
 - **Text** - Basic text rendering with styling
 - **Paragraph** - Multi-line text with word wrapping
 - **List** - Ordered and unordered lists with custom markers
@@ -31,6 +35,7 @@ Rink is a Ruby library for building beautiful command-line applications with a s
 - **Progress bar** - Visual progress indication
 
 ### ⌨️ Interactive Components
+
 - **TextInput** - Single-line text input with validation
 - **Select** - Single and multi-select menus
 - **Confirm** - Yes/no prompts
@@ -38,11 +43,13 @@ Rink is a Ruby library for building beautiful command-line applications with a s
 - **Form** - Complex forms with multiple inputs
 
 ### 🎮 Input Handling
+
 - **Keyboard events** - React to key presses, including special keys
 - **Mouse support** - Click and hover events (terminal permitting)
 - **Focus management** - Tab through interactive elements
 
 ### 🔄 Real-time Updates
+
 - **Live rendering** - Automatic UI updates when state changes
 - **Animations** - Smooth transitions and animations
 - **Async support** - Handle asynchronous operations gracefully
@@ -93,6 +100,7 @@ Rink.render(Counter.new)
 ## More Examples
 
 ### Styled Text
+
 ```ruby
 class HelloWorld < Rink::Component
   def render
@@ -103,6 +111,7 @@ end
 ```
 
 ### Interactive Menu
+
 ```ruby
 class Menu < Rink::Component
   def render
@@ -117,6 +126,7 @@ end
 ```
 
 ### Layout with Flexbox
+
 ```ruby
 class Dashboard < Rink::Component
   def render
@@ -137,6 +147,16 @@ end
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+### Terminal Behavior
+
+By default the renderer now draws directly on the main screen buffer so that when you press Ctrl+C the final frame remains visible (similar to Ink / React behavior). If you prefer using the alternate screen buffer (content disappears after exit, keeping your scrollback clean) set:
+
+```
+RINK_ALT_SCREEN=1 bundle exec ruby examples/counter.rb
+```
+
+When the alternate screen is enabled the library will still copy the final frame back to the normal buffer on exit so you can see the last UI state.
 
 ## Contributing
 

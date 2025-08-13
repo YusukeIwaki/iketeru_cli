@@ -55,6 +55,29 @@ This is a Ruby gem for building CLI applications with component-based architectu
 - Rich text styling and layout capabilities
 - Interactive components for user input
 
+## Important Implementation Notes
+
+### Terminal Rendering Behavior
+- **Main screen vs Alt screen**: By default, Rink renders to the main screen buffer (like Ink) so the final frame remains visible after exit
+- **Alt screen mode**: Set `RINK_ALT_SCREEN=1` to use alternate screen buffer (content disappears on exit, preserving scrollback)
+- **Frame persistence**: When using alt screen, the final frame is copied back to main screen on exit
+
+### Renderer Implementation Critical Points
+1. **Cursor positioning**: Must carefully track previous frame height to properly clear and redraw
+2. **Line-by-line rendering**: Each line requires `\r` (carriage return), content, `\e[K` (clear to end of line), then `\n` (newline) except for the last line
+3. **Height tracking**: `@previous_height` must be updated after each render to ensure proper clearing
+4. **Raw mode considerations**: In raw mode, `\n` doesn't include carriage return, so explicit `\r\n` needed for clean exit
+
+### Terminal Safety
+- All terminal control sequences must check `STDOUT.tty?` and `STDIN.tty?`
+- Handle `Errno::ENODEV` and `Errno::ENOTTY` exceptions for non-terminal environments
+- Graceful degradation when terminal features are unavailable
+
+### Display Width Calculations
+- ANSI escape sequences must be stripped before calculating text width
+- East Asian wide characters and emoji require special width handling
+- Box drawing characters are treated as single-width in most terminals
+
 The gem uses:
 - RSpec ~> 3.0 for testing
 - Bundler ~> 1.17 for dependency management
