@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'rink'
+require 'iketeru_cli'
 
-class QuickCounter < Rink::Component
+class QuickCounter < IketeruCli::Component
   def initialize
     super
     @state = { count: 0 }
@@ -31,5 +31,5 @@ class QuickCounter < Rink::Component
 end
 
 puts "Starting quick counter test..."
-Rink.render(QuickCounter.new)
+IketeruCli.render(QuickCounter.new)
 puts "Counter test completed."

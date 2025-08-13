@@ -1,4 +1,4 @@
-module Rink
+module IketeruCli
   class Box
     attr_reader :options, :children
 

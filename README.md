@@ -1,6 +1,6 @@
-# Rink
+# IketeruCli
 
-Rink is a Ruby library for building beautiful command-line applications with a simple, declarative syntax. Inspired by React and Ink, it brings component-based architecture and modern UI patterns to the terminal.
+IketeruCli is a Ruby library for building beautiful command-line applications with a simple, declarative syntax. Inspired by React and Ink, it brings component-based architecture and modern UI patterns to the terminal.
 
 ## Features
 
@@ -59,7 +59,7 @@ Rink is a Ruby library for building beautiful command-line applications with a s
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rink'
+gem 'iketeru_cli'
 ```
 
 And then execute:
@@ -68,14 +68,14 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rink
+    $ gem install iketeru_cli
 
 ## Quick Start
 
 ```ruby
-require 'rink'
+require 'iketeru_cli'
 
-class Counter < Rink::Component
+class Counter < IketeruCli::Component
   def initialize
     super
     @state = { count: 0 }
@@ -94,7 +94,7 @@ class Counter < Rink::Component
   end
 end
 
-Rink.render(Counter.new)
+IketeruCli.render(Counter.new)
 ```
 
 ## More Examples
@@ -102,7 +102,7 @@ Rink.render(Counter.new)
 ### Styled Text
 
 ```ruby
-class HelloWorld < Rink::Component
+class HelloWorld < IketeruCli::Component
   def render
     text("Hello, ", color: :blue)
     text("World!", color: :magenta, bold: true, underline: true)
@@ -113,7 +113,7 @@ end
 ### Interactive Menu
 
 ```ruby
-class Menu < Rink::Component
+class Menu < IketeruCli::Component
   def render
     select(label: "Choose your option:") do
       option("Start new game", value: :new_game)
@@ -128,7 +128,7 @@ end
 ### Layout with Flexbox
 
 ```ruby
-class Dashboard < Rink::Component
+class Dashboard < IketeruCli::Component
   def render
     box(flex_direction: :row, height: "100%") do
       box(flex: 1, border: :single) do
@@ -153,11 +153,11 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 By default the renderer now draws directly on the main screen buffer so that when you press Ctrl+C the final frame remains visible (similar to Ink / React behavior). If you prefer using the alternate screen buffer (content disappears after exit, keeping your scrollback clean) set:
 
 ```
-RINK_ALT_SCREEN=1 bundle exec ruby examples/counter.rb
+IKETERU_CLI_ALT_SCREEN=1 bundle exec ruby examples/counter.rb
 ```
 
 When the alternate screen is enabled the library will still copy the final frame back to the normal buffer on exit so you can see the last UI state.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rink.
+Bug reports and pull requests are welcome on GitHub at https://github.com/YusukeIwaki/iketeru_cli.

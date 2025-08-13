@@ -1,6 +1,6 @@
-# TypeScript/Ink vs Ruby/Rink Comparison
+# TypeScript/Ink vs Ruby/IketeruCli Comparison
 
-This directory contains TypeScript examples using the original Ink library for comparison with our Ruby Rink implementation.
+This directory contains TypeScript examples using the original Ink library for comparison with our Ruby IketeruCli implementation.
 
 ## Setup
 
@@ -20,7 +20,7 @@ npm run counter
 ./run_counter.sh
 ```
 
-### Ruby Counter (Rink)
+### Ruby Counter (IketeruCli)
 ```bash
 cd ..
 bundle exec ruby examples/counter.rb
@@ -56,11 +56,11 @@ const Counter = () => {
 render(<Counter />);
 ```
 
-### Ruby/Rink version:
+### Ruby/IketeruCli version:
 ```ruby
-require 'rink'
+require 'iketeru_cli'
 
-class Counter < Rink::Component
+class Counter < IketeruCli::Component
   def initialize
     super
     @state = { count: 0 }
@@ -79,25 +79,25 @@ class Counter < Rink::Component
   end
 end
 
-Rink.render(Counter.new)
+IketeruCli.render(Counter.new)
 ```
 
 ## Key Differences
 
 1. **State Management**: 
    - Ink uses React hooks (`useState`)
-   - Rink uses instance variables with `set_state`
+   - IketeruCli uses instance variables with `set_state`
 
 2. **Event Handling**:
    - Ink uses `useInput` hook
-   - Rink uses `on_key` method in `mount`
+   - IketeruCli uses `on_key` method in `mount`
 
 3. **Syntax**:
    - Ink uses JSX syntax
-   - Rink uses Ruby blocks with DSL methods
+   - IketeruCli uses Ruby blocks with DSL methods
 
 4. **Component Structure**:
    - Ink uses functional components
-   - Rink uses class-based components
+   - IketeruCli uses class-based components
 
 Both achieve the same functionality with similar declarative approaches!

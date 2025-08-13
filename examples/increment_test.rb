@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'rink'
+require 'iketeru_cli'
 
 puts "Before counter:"
 
-class Counter < Rink::Component
+class Counter < IketeruCli::Component
   def initialize
     super
     @state = { count: 0 }
@@ -36,5 +36,5 @@ class Counter < Rink::Component
   end
 end
 
-Rink.render(Counter.new)
+IketeruCli.render(Counter.new)
 puts "After counter."

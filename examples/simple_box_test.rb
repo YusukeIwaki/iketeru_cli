@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'rink'
+require 'iketeru_cli'
 
 # Simplest possible box test
-class SimpleTest < Rink::Component
+class SimpleTest < IketeruCli::Component
   def render
     box(border: :single) do
       text("Test")
@@ -17,7 +17,7 @@ puts SimpleTest.new.render
 puts
 
 # Test with padding
-class PaddedTest < Rink::Component
+class PaddedTest < IketeruCli::Component
   def render
     box(border: :single, padding: 1) do
       text("Test")
@@ -30,7 +30,7 @@ puts PaddedTest.new.render
 puts
 
 # Test with longer text
-class LongTest < Rink::Component
+class LongTest < IketeruCli::Component
   def render
     box(border: :single, padding: 1) do
       text("This is a much longer text string")

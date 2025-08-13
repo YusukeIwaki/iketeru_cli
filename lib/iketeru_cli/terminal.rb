@@ -1,6 +1,6 @@
 require 'io/console'
 
-module Rink
+module IketeruCli
   module Terminal
     extend self
 

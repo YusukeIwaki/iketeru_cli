@@ -1,4 +1,4 @@
-module Rink
+module IketeruCli
   class Component
     attr_reader :state, :props, :children
 
@@ -60,13 +60,13 @@ module Rink
     end
 
     def exit_app
-      Rink.exit_app
+      IketeruCli.exit_app
     end
 
     private
 
     def rerender
-      Rink.rerender
+      IketeruCli.rerender
     end
   end
 end

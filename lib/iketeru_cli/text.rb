@@ -1,4 +1,4 @@
-module Rink
+module IketeruCli
   class Text
     attr_reader :content, :options
 

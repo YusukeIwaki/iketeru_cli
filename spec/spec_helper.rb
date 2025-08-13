@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "rink"
+require "iketeru_cli"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -41,4 +41,4 @@ Both Ruby and TypeScript versions should display:
 - **Interaction**: Both use similar key handling patterns
 - **Syntax**: TypeScript uses JSX, Ruby uses block DSL
 
-The Ruby Rink implementation successfully replicates the Ink behavior!
+The Ruby IketeruCli implementation successfully replicates the Ink behavior!

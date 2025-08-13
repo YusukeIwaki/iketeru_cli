@@ -1,4 +1,4 @@
-# Testing Rink
+# Testing IketeruCli
 
 ## Running Tests
 
@@ -28,16 +28,16 @@ This will show the Counter rendering with different states.
 
 ## Creating Your Own Component
 
-Create a new file and require Rink:
+Create a new file and require IketeruCli:
 
 ```ruby
 require 'bundler/setup'
-require 'rink'
+require 'iketeru_cli'
 
-class MyApp < Rink::Component
+class MyApp < IketeruCli::Component
   def initialize
     super
-    @state = { message: "Hello, Rink!" }
+    @state = { message: "Hello, IketeruCli!" }
   end
   
   def render
@@ -47,5 +47,5 @@ class MyApp < Rink::Component
   end
 end
 
-Rink.render(MyApp.new)
+IketeruCli.render(MyApp.new)
 ```

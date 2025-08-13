@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'rink'
+require 'iketeru_cli'
 
 # Test the Counter component without starting the interactive app
-class Counter < Rink::Component
+class Counter < IketeruCli::Component
   def initialize
     super
     @state = { count: 0 }

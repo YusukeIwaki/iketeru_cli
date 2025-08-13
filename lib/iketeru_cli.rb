@@ -1,11 +1,11 @@
-require "rink/version"
-require "rink/terminal"
-require "rink/text"
-require "rink/box"
-require "rink/component"
-require "rink/renderer"
+require "iketeru_cli/version"
+require "iketeru_cli/terminal"
+require "iketeru_cli/text"
+require "iketeru_cli/box"
+require "iketeru_cli/component"
+require "iketeru_cli/renderer"
 
-module Rink
+module IketeruCli
   class Error < StandardError; end
   
   class << self

@@ -1,12 +1,12 @@
 require 'spec_helper'
 require 'stringio'
 
-RSpec.describe Rink::Renderer do
+RSpec.describe IketeruCli::Renderer do
   before(:all) do
-    skip 'Rink::Renderer not defined' unless defined?(Rink::Renderer)
+    skip 'IketeruCli::Renderer not defined' unless defined?(IketeruCli::Renderer)
   end
   # Minimal component for rendering test
-  class CountingComponent < Rink::Component
+  class CountingComponent < IketeruCli::Component
     def initialize(val = 0)
       super()
       @state = { n: val }
@@ -31,7 +31,7 @@ RSpec.describe Rink::Renderer do
 
   it 'moves cursor up by (previous_height - 1) to avoid upward drift' do
     component = CountingComponent.new(0)
-    renderer = Rink::Renderer.new(component)
+    renderer = IketeruCli::Renderer.new(component)
     renderer.instance_variable_set(:@running, true)
     component.instance_variable_set(:@mounted, true)
 
@@ -53,7 +53,7 @@ RSpec.describe Rink::Renderer do
 
   it 'persists final frame on cleanup when alt screen mode simulated' do
     component = CountingComponent.new(0)
-    renderer = Rink::Renderer.new(component)
+    renderer = IketeruCli::Renderer.new(component)
     renderer.instance_variable_set(:@running, true)
     component.instance_variable_set(:@mounted, true)
     # First render
@@ -69,7 +69,7 @@ RSpec.describe Rink::Renderer do
 
   it 'prints only one frame and a CRLF on cleanup in non-alt mode' do
     component = CountingComponent.new(0)
-    renderer = Rink::Renderer.new(component)
+    renderer = IketeruCli::Renderer.new(component)
     renderer.instance_variable_set(:@running, true)
     component.instance_variable_set(:@mounted, true)
     combined = capture_stdout { renderer.rerender; renderer.send(:cleanup) }

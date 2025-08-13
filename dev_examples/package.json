@@ -1,8 +1,8 @@
 {
-  "name": "rink-typescript-examples",
+  "name": "iketeru_cli-typescript-examples",
   "version": "1.0.0",
   "type": "module",
-  "description": "TypeScript examples using Ink for comparison with Ruby Rink",
+  "description": "TypeScript examples using Ink for comparison with Ruby IketeruCli",
   "main": "counter.tsx",
   "scripts": {
     "counter": "tsx counter.tsx",

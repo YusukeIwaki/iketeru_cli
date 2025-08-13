@@ -1,4 +1,4 @@
-module Rink
+module IketeruCli
   class Renderer
     attr_reader :component
 
@@ -14,7 +14,7 @@ module Rink
 
       Terminal.hide_cursor
       Terminal.enable_raw_mode
-  @use_alt_screen = ENV['RINK_ALT_SCREEN'] == '1'
+  @use_alt_screen = ENV['IKETERU_CLI_ALT_SCREEN'] == '1'
   Terminal.enter_alt_screen if @use_alt_screen
   if @use_alt_screen
     Terminal.clear

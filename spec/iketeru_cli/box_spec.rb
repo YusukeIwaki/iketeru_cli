@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Rink::Box do
+RSpec.describe IketeruCli::Box do
   # Helper class to provide component context for tests
-  class TestContext < Rink::Component
+  class TestContext < IketeruCli::Component
     def render
       # Not used in these tests
     end
@@ -12,7 +12,7 @@ RSpec.describe Rink::Box do
 
   describe '#render' do
     it 'renders empty box with border' do
-      box = Rink::Box.new(border: :single)
+      box = IketeruCli::Box.new(border: :single)
       # Empty box doesn't need context
       result = box.render
       expect(result).to include('┌')
@@ -22,7 +22,7 @@ RSpec.describe Rink::Box do
     end
 
     it 'renders box with text content' do
-      box = Rink::Box.new(border: :single) do
+      box = IketeruCli::Box.new(border: :single) do
         text("Hello")
       end
       box.build_children(context)
@@ -32,7 +32,7 @@ RSpec.describe Rink::Box do
     end
 
     it 'renders box with padding' do
-      box = Rink::Box.new(border: :single, padding: 1) do
+      box = IketeruCli::Box.new(border: :single, padding: 1) do
         text("Hi")
       end
       box.build_children(context)
@@ -48,7 +48,7 @@ RSpec.describe Rink::Box do
     end
 
     it 'renders box with double border' do
-      box = Rink::Box.new(border: :double)
+      box = IketeruCli::Box.new(border: :double)
       result = box.render
       expect(result).to include('╔')
       expect(result).to include('╗')
@@ -57,7 +57,7 @@ RSpec.describe Rink::Box do
     end
 
     it 'renders box with round border' do
-      box = Rink::Box.new(border: :round)
+      box = IketeruCli::Box.new(border: :round)
       result = box.render
       expect(result).to include('╭')
       expect(result).to include('╮')
@@ -66,7 +66,7 @@ RSpec.describe Rink::Box do
     end
 
     it 'renders nested boxes' do
-      box = Rink::Box.new(border: :single) do
+      box = IketeruCli::Box.new(border: :single) do
         box(border: :single) do
           text("Nested")
         end
@@ -78,7 +78,7 @@ RSpec.describe Rink::Box do
     end
 
     it 'renders multiple text elements' do
-      box = Rink::Box.new(border: :single, padding: 1) do
+      box = IketeruCli::Box.new(border: :single, padding: 1) do
         text("Line 1")
         text("Line 2")
       end
@@ -89,7 +89,7 @@ RSpec.describe Rink::Box do
     end
 
     it 'preserves ANSI codes in styled text' do
-      box = Rink::Box.new(border: :single) do
+      box = IketeruCli::Box.new(border: :single) do
         text("Hello", color: :green)
       end
       box.build_children(context)
@@ -98,7 +98,7 @@ RSpec.describe Rink::Box do
     end
 
     it 'handles full-width characters without breaking border alignment' do
-      box = Rink::Box.new(border: :single, padding: 1) do
+      box = IketeruCli::Box.new(border: :single, padding: 1) do
         text("カタカナ") # 4 full-width chars (display width 8)
         text("ABCD")     # 4 ascii chars (display width 4)
       end
@@ -137,7 +137,7 @@ RSpec.describe Rink::Box do
     end
 
     it 'handles emoji width (approximate double-width) for alignment' do
-      box = Rink::Box.new(border: :single, padding: 1) do
+      box = IketeruCli::Box.new(border: :single, padding: 1) do
         text("😀😀") # 2 emoji (treated as width 4)
         text("1234")
       end

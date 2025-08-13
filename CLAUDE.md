@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Rink is a Ruby library for building beautiful command-line applications with a declarative, component-based syntax. It's inspired by React and Ink (JavaScript), bringing modern UI patterns to terminal applications.
+IketeruCli is a Ruby library for building beautiful command-line applications with a declarative, component-based syntax. It's inspired by React and Ink (JavaScript), bringing modern UI patterns to terminal applications.
 
 ## Coding Conventions
 
@@ -27,8 +27,8 @@ Rink is a Ruby library for building beautiful command-line applications with a d
 ### Testing
 - `rake spec` - Run all RSpec tests
 - `bundle exec rspec` - Run all tests with bundler context
-- `bundle exec rspec spec/rink_spec.rb` - Run specific test file
-- `bundle exec rspec spec/rink_spec.rb:10` - Run test at specific line
+- `bundle exec rspec spec/iketeru_cli_spec.rb` - Run specific test file
+- `bundle exec rspec spec/iketeru_cli_spec.rb:10` - Run test at specific line
 
 ### Development
 - `bin/console` - Interactive Ruby console with gem loaded for experimentation
@@ -36,17 +36,17 @@ Rink is a Ruby library for building beautiful command-line applications with a d
 - `bundle exec rake build` - Build the gem package
 
 ### Release
-- `bundle exec rake release` - Create git tag, push commits/tags, and push gem to rubygems.org (requires version bump in lib/rink/version.rb)
+- `bundle exec rake release` - Create git tag, push commits/tags, and push gem to rubygems.org (requires version bump in lib/iketeru_cli/version.rb)
 
 ## Architecture
 
 This is a Ruby gem for building CLI applications with component-based architecture:
 
-- **lib/rink.rb** - Main entry point for the gem, requires version and defines the Rink module with base Error class
-- **lib/rink/** - Directory for additional Ruby modules and classes
-- **lib/rink/version.rb** - Defines gem version constant (Rink::VERSION)
+- **lib/iketeru_cli.rb** - Main entry point for the gem, requires version and defines the IketeruCli module with base Error class
+- **lib/iketeru_cli/** - Directory for additional Ruby modules and classes
+- **lib/iketeru_cli/version.rb** - Defines gem version constant (IketeruCli::VERSION)
 - **spec/** - RSpec test suite with spec_helper.rb configuration
-- **rink.gemspec** - Gem specification defining dependencies, metadata, and packaging
+- **iketeru_cli.gemspec** - Gem specification defining dependencies, metadata, and packaging
 
 ### Key Design Principles
 - Component-based architecture similar to React
@@ -58,8 +58,8 @@ This is a Ruby gem for building CLI applications with component-based architectu
 ## Important Implementation Notes
 
 ### Terminal Rendering Behavior
-- **Main screen vs Alt screen**: By default, Rink renders to the main screen buffer (like Ink) so the final frame remains visible after exit
-- **Alt screen mode**: Set `RINK_ALT_SCREEN=1` to use alternate screen buffer (content disappears on exit, preserving scrollback)
+- **Main screen vs Alt screen**: By default, IketeruCli renders to the main screen buffer (like Ink) so the final frame remains visible after exit
+- **Alt screen mode**: Set `IKETERU_CLI_ALT_SCREEN=1` to use alternate screen buffer (content disappears on exit, preserving scrollback)
 - **Frame persistence**: When using alt screen, the final frame is copied back to main screen on exit
 
 ### Renderer Implementation Critical Points
